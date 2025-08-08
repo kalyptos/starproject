@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python3", "pip"]
+
+[phases.install]
+cmd = "pip install -r requirements.txt"
+
+[phases.build]
+cmd = "python manage.py collectstatic --noinput"
+
+[start]
+cmd = "gunicorn farout.wsgi --log-file -"
